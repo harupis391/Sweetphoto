@@ -1,0 +1,41 @@
+<div class="row">
+  
+    <aside class="col-sm-5 text-center mt-sm-auto mb-sm-auto">
+        <p>アカウントをお持ちの方</p>
+        <a class="btn btn-light" href="#">ログインする</a>
+    </aside>
+    
+  <div class="card col-sm-7">
+    <div class="card-body">
+      
+      <h3 class="card-title text-center">新規アカウント登録</h3>
+      
+      <%= form_with(model: @user, local: true) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <div class="card-text form-group">
+          <%= f.label :name, 'ユーザ名' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+  
+        <div class="card-text form-group">
+          <%= f.label :email, 'メールアドレス' %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+  
+        <div class="card-text form-group">
+          <%= f.label :password, 'パスワード' %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+  
+        <div class="card-text form-group">
+          <%= f.label :password_confirmation, 'パスワード（確認）' %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+        
+        <div class="card-link text-center">
+        <%= f.submit '登録', class: 'btn btn-primary rounded-pill' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

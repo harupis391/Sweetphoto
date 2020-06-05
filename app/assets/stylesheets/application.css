@@ -12,4 +12,40 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
+
+a:link {
+    color: #777;
+}
+
+a:hover {
+    color: #900;
+}
+
+/*ユーザ詳細画面*/
+
+
+.user_img-container{
+  display: flex;/* flexbox */
+  justify-content: center;
+  align-items: center;
+}
+
+.user_list {
+    margin: 0 auto;
+}
+
+.user_list li {
+    display: inline-block;
+    margin: 8px;
+    
+}
+
+/*ユーザ編集画面*/
+
+.img_edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

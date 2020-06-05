@@ -1,0 +1,17 @@
+<div class="row mt-5">
+    <div class="user_img-container col-10">
+        <img src="" alt="" class="rounded-circle img-fluid">
+        <h2><%= user.name %></h2>
+    </div>
+    <aside class="col-2">
+        <%= link_to edit_user_path do %>
+        <i class="fa fa-user-cog fa-lg"></i>
+        <% end %>
+        
+    </aside>
+    <ul class="user_list list-unstyled mt-4">
+      <li>投稿</li>
+      <li>フォロー</li>
+      <li>フォロワー</li>
+    </ul>
+</div>
