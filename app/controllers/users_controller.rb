@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_user_logged_in, only: [:show, :edit, :update]
   before_action :set_user, only: [:show, :edit, :update]
   
   def show
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
       flash[:success] = '新規アカウントを登録しました。'
       redirect_to @user
     else
-      flash.now[:danger] = 'アカウントの登録に失敗しました。'
+      flash.now[:danger] = '入力内容に誤りがあります。'
       render :new
     end
   end
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
   end
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
   end
   
 end

@@ -8,12 +8,11 @@
     <%= form_with(model: @user, local: true) do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
         
-    <div class="img_edit ml-1">
-       <p>プロフィール画像の変更</p>
-       <div class="">
-         <a href="#" class="btn btn-light">写真を選択</a>
+        <div class="form-group ml-1">
+            <%= f.label :image, :プロフィール画像 %>
+            <%= f.file_field :image, class: 'form-control-file' %>
+          
         </div>
-    </div>
     
         <div class="form-group mt-sm-3">
           <%= f.label :name, 'ユーザ名' %>
@@ -36,7 +35,7 @@
         </div>
         
         <div class="text-center">
-         <%= f.submit '更新', class: 'btn btn-primary rounded-pill' %>
+         <%= f.submit '更新', class: 'btn btn-submit rounded-pill' %>
         </div>
     <% end %>
   </div>

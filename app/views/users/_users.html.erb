@@ -1,13 +1,18 @@
 <div class="row mt-5">
-    <div class="user_img-container col-10">
-        <img src="" alt="" class="rounded-circle img-fluid">
-        <h2><%= user.name %></h2>
+    <div class="user_img_container col-5">
+      <% if user.image? %>
+        <%= image_tag user.image.url, alt:"user_icon", class: "user_icon rounded-circle" %>
+      <% else %>
+        <%= image_tag "/user_icon.png", alt:"user_icon", class: "user_icon rounded-circle img-thumbnail" %>
+      <% end %>
     </div>
-    <aside class="col-2">
+    <aside class="col-7">
+      <h2><%= user.name %></h2>
+      <div class="edit_button">
         <%= link_to edit_user_path do %>
-        <i class="fa fa-user-cog fa-lg"></i>
+          <i class="fa fa-user-cog fa-2x"></i>
         <% end %>
-        
+      </div>
     </aside>
     <ul class="user_list list-unstyled mt-4">
       <li>投稿</li>

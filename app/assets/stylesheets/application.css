@@ -15,21 +15,60 @@
  *= require font-awesome
  */
 
-a:link {
-    color: #777;
-}
+/*全体*/
 
-a:hover {
+a {
     color: #900;
 }
 
+a:hover {
+    color: #c03;
+}
+
+.btn-submit {
+    color: #fff;
+    background-color: #900;
+}
+
+.btn-white {
+    color: #900;
+    border-color: #900;
+}
+
+.btn:hover {
+    color: #c03;
+    background-color: #FFD5EC;
+    border-color: #c03;
+}
+
+.form-control-file:hover  {
+    cursor: pointer;
+}
+
+/*ヘッダー*/
+
+.title {
+    font-size: 25px;
+    font-family: 'Marker Felt','Chalkboard SE','Comic Sans MS',sans-serif;
+}
+
+
 /*ユーザ詳細画面*/
 
-
-.user_img-container{
-  display: flex;/* flexbox */
-  justify-content: center;
+.user_img_container{
+  display: flex; 
   align-items: center;
+}
+
+.user_icon {
+    width: 150px;
+    /*height: 150px;*/
+    object-fit: cover;
+}
+
+.edit_button {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .user_list {
@@ -42,10 +81,6 @@ a:hover {
     
 }
 
+
 /*ユーザ編集画面*/
 
-.img_edit {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
