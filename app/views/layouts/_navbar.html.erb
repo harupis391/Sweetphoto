@@ -1,19 +1,16 @@
-<header class="mb-5">
-  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+<header class="mb-2">
+  <nav class="navbar navbar-expand-sm navbar-light">
     
     <% if logged_in? %>
-      <div class="justify-content-end">
         <a class="title navbar-brand" href="/">Sweetphoto</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
           <span class="navbar-toggler-icon"></span>
         </button>
-      </div>
-  
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item nav-link"><%= link_to 'マイページ', user_path(current_user) %></li>
-          <li class="nav-item nav-link border-left">通知</li>
-          <li class="nav-item nav-link border-left"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+          <li class="nav-item nav-link"><%= link_to current_user.name, user_path(current_user) %></li>
+          <li class="nav-item nav-link">通知</li>
+          <li class="nav-item nav-link"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
         </ul>
       </div>
     <% else %>

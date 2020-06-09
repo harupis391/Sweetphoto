@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <div class="head_img mt-md-4 mb-4">
+      <%= image_tag @post.user.image.url, alt: "icon", class: "user_icon rounded-circle mr-3" %>
+      <h3>投稿の編集</h3>
+    </div>
+    <div class="row mt-md-5">
+      <aside class="col-md-6 text-center">
+          <%= image_tag @post.image.url, alt: "post_image", class: "img-fluid" %>
+      </aside>
+      <div class="col-md-6 mt-3">
+        <%= form_with(model: @post, local: true) do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
+          
+          <div class="form-group">
+            <%= f.text_area :content, class: 'form-control', rows: 4 %>
+          </div>
+          <div class="text-right">
+            <%= f.submit '更新', class: 'btn btn-submit rounded-pill' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="post_edit mt-5">
+      <div>
+        <%= link_to '<投稿へ戻る', post_path(@post), class: "btn btn-white rounded-pill" %>
+      </div>
+      <div>
+        <%= link_to '投稿を削除', @post, method: :delete, data: { confirm: 'この投稿に対するコメントも全て削除されます。投稿を削除してよろしいですか？' }, class: "btn btn-delete rounded-pill" %>
+      </div>
+    </div>
+  </div>
+</div>

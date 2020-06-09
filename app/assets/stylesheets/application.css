@@ -15,6 +15,7 @@
  *= require font-awesome
  */
 
+
 /*全体*/
 
 a {
@@ -35,6 +36,11 @@ a:hover {
     border-color: #900;
 }
 
+.btn-delete {
+    color: #fff;
+    background-color: #000;
+}
+
 .btn:hover {
     color: #c03;
     background-color: #FFD5EC;
@@ -45,11 +51,16 @@ a:hover {
     cursor: pointer;
 }
 
+
 /*ヘッダー*/
 
 .title {
     font-size: 25px;
     font-family: 'Marker Felt','Chalkboard SE','Comic Sans MS',sans-serif;
+}
+
+.navbar-light {
+    background-color: #FFBEDA;
 }
 
 
@@ -60,10 +71,12 @@ a:hover {
   align-items: center;
 }
 
-.user_icon {
+.big_icon {
     width: 150px;
-    /*height: 150px;*/
+    height: 150px;
     object-fit: cover;
+    border: 1px solid;
+    border-color: #C0C0C0;
 }
 
 .edit_button {
@@ -82,5 +95,42 @@ a:hover {
 }
 
 
-/*ユーザ編集画面*/
+/*トップページ*/
 
+.head_img {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.post_icon {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: 1px solid;
+    border-color: #C0C0C0;
+}
+
+.user_icon {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 1px solid;
+    border-color: #C0C0C0;
+}
+
+
+/*投稿詳細画面*/
+
+.post_head {
+    display: flex;
+    align-items: center;
+}
+
+/*投稿編集画面*/
+
+
+.post_edit {
+    display:flex;
+    justify-content:space-between;
+}

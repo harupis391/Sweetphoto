@@ -1,21 +1,24 @@
 <div class="row mt-5">
     <div class="user_img_container col-5">
-      <% if user.image? %>
-        <%= image_tag user.image.url, alt:"user_icon", class: "user_icon rounded-circle" %>
-      <% else %>
-        <%= image_tag "/user_icon.png", alt:"user_icon", class: "user_icon rounded-circle img-thumbnail" %>
-      <% end %>
+      <%= image_tag user.image.url, alt: "icon", class: "big_icon rounded-circle" %>
     </div>
-    <aside class="col-7">
+    <aside class="col-6">
       <h2><%= user.name %></h2>
       <div class="edit_button">
-        <%= link_to edit_user_path do %>
-          <i class="fa fa-user-cog fa-2x"></i>
+        <% if current_user == user %>
+          <%= link_to edit_user_path(user) do %>
+            <i class="fa fa-user-cog fa-2x"></i>
+          <% end %>
         <% end %>
       </div>
     </aside>
-    <ul class="user_list list-unstyled mt-4">
-      <li>投稿</li>
+    <ul class="user_list list-unstyled mt-4 mb-5">
+      <li>
+        投稿
+        <div class="badge">
+          <%= @count_posts %>
+        </div>
+      </li>
       <li>フォロー</li>
       <li>フォロワー</li>
     </ul>

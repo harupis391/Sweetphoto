@@ -1,0 +1,35 @@
+<div class="row">
+  <aside class="col-md-6 offset-md-1">
+    <div class="card mt-5 mb-3">
+      <div class="card-body">
+        <div class="post_head">
+          <%= image_tag @post.user.image.url, alt: "icon", class: "user_icon rounded-circle mr-1" %>
+          <div class="card-text">
+            <h3><%= link_to @post.user.name, user_path(@post.user) %></h3>
+          </div>
+        </div>
+        
+        <div class="card-text text-right">
+          <%= time_ago_in_words(@post.created_at) %><span>前</span>
+        </div>
+        <%= image_tag @post.image.url, alt: "post_image", class: "card-img mb-1" %>
+      </div>
+    </div>
+  </aside>
+  <div class="col-md-5">
+    <div class="text-right mt-md-5">
+      <% if current_user == @post.user %>
+        <%= link_to edit_post_path(@post) do %>
+          <i class="fas fa-edit fa-lg mr-2"></i>
+        <% end %>
+        <%= link_to @post, method: :delete, data: { confirm: 'この投稿に対するコメントも全て削除されます。投稿を削除してよろしいですか？' } do %>
+          <i class="fas fa-trash-alt fa-lg"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <p><%= simple_format(@post.content) %></p>
+    </div>
+    
+  </div>
+</div>

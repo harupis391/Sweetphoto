@@ -1,11 +1,24 @@
 <div class="row">
-  <div class="col-sm-5">
+  <div class="col-md-5">
     <%= render 'users', user: @user %>
   </div>
-  <div class="col-sm-6 offset-sm-1">
-    <ul class="nav nav-tabs nav-justified mb-6">
-      <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-images fa-lg"></i></a></li>
-      <li class="nav-item border-left"><a href="#" class="nav-link"><i class="far fa-heart fa-lg"></i></a></li>
+  <div class="col-md-6">
+    <ul class="nav nav-tabs nav-justified mt-sm-5 mb-5">
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>"><i class="far fa-images fa-lg"></i></a></li>
+      <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-heart fa-lg"></i></a></li>
     </ul>
+     <% if @posts.any? %>
+      <div class="row">
+        <% @posts.each do |post| %>
+          <div class="col-4">
+            <div class="thumbnail mb-3">
+              <%= link_to post_path(post) do %>
+                <%= image_tag post.image.url, alt: "image", class: "img-fluid" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

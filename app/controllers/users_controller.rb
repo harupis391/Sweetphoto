@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :edit, :update]
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
   
   def show
+    @user = User.find(params[:id])
+    @posts = @user.posts.order(id: :desc)
+    counts(@user)
   end
 
   def new
@@ -22,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
@@ -29,22 +33,25 @@ class UsersController < ApplicationController
       params[:user].delete("password")
     end
     if @user.update(user_params)
-      flash[:success] = 'アカウントを編集しました。'
+      flash[:success] = 'ユーザ情報を更新しました。'
       redirect_to @user
     else
-      flash.now[:danger] = 'アカウントの編集に失敗しました。'
+      flash.now[:danger] = '入力内容に誤りがあります。'
       render :edit
     end
   end
   
   private
   
-  def set_user
-    @user = User.find(params[:id])
+  def correct_user
+      @user = User.find_by(id: params[:id])
+    unless @user == current_user
+      redirect_to root_url
+    end
   end
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :remove_image)
   end
   
 end

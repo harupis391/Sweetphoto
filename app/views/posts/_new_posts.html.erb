@@ -1,0 +1,22 @@
+<div class="card new_post mt-5">
+  <div class="card-title head_img mt-2">
+    <%= image_tag current_user.image.url, alt: "icon", class: "user_icon rounded-circle mr-2" %>
+    <h3>新しい投稿</h3>
+  </div>
+  <div class="card-body">
+    <%= form_with(model: post, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="card-text form-group">
+        <%= f.file_field :image, id: :post_image, class: 'form-control-file' %>
+      </div>
+      <div class="card-text form-group">
+        <%= f.text_area :content, class: 'form-control', rows: 4 %>
+      </div>
+      <div class="card-link text-right">
+        <%= f.submit '投稿', class: 'btn btn-submit rounded-pill' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+      

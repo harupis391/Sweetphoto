@@ -1,20 +1,25 @@
 <div class="text-center mb-4">
+  <div class="head_img_new">
+    <%= image_tag @user.image.url, alt: "icon", class: "user_icon rounded-circle mr-2" %>
     <h3>ユーザ情報の編集</h3>
+  </div>
 </div>
 
 <div class="row">
-  <div class="col-sm-6 offset-sm-3">
+  <div class="col-md-6 offset-md-3">
 
     <%= form_with(model: @user, local: true) do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
         
         <div class="form-group ml-1">
-            <%= f.label :image, :プロフィール画像 %>
-            <%= f.file_field :image, class: 'form-control-file' %>
-          
+            <%= f.label :image, 'プロフィール画像' %>
+            <%= f.file_field :image, id: 'user_image', class: 'form-control-file' %>
+            
+            <%= f.check_box :remove_image %>
+            <%= f.label :remove_image, 'プロフィール画像を削除' %>
         </div>
     
-        <div class="form-group mt-sm-3">
+        <div class="form-group mt-md-3">
           <%= f.label :name, 'ユーザ名' %>
           <%= f.text_field :name, class: 'form-control' %>
         </div>
