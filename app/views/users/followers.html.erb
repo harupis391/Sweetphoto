@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-5">
+    <%= render 'users', user: @user %>
+  </div>
+  <div class="col-md-6">
+    <div class="card mt-5">
+      <div class="card-header">
+        <h5 class="card-title d-flex align-items-center justify-content-center">フォロワー</h5>
+      </div>
+      <div class="card-body">
+        <% if @followers.any? %>
+          <ul class="list-unstyled">
+            <% @followers.each do |follower| %>
+              <li class="follow_name mb-3">
+                <div>
+                  <%= image_tag follower.image.url, alt: "icon", class: "user_icon rounded-circle mr-2" %>
+                  <%= link_to follower.name, followers_user_path(follower) %>
+                </div>
+                <div>
+                  <%= render 'relationships/follow_button', user: follower %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

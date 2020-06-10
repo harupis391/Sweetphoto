@@ -60,48 +60,55 @@ a:hover {
 }
 
 .navbar-light {
-    background-color: #FFBEDA;
+    background-color: #FFB6C1;
 }
 
 
 /*ユーザ詳細画面*/
 
-.user_img_container{
-  display: flex; 
-  align-items: center;
-}
-
 .big_icon {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border: 1px solid;
-    border-color: #C0C0C0;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid;
+  border-color: #C0C0C0;
 }
 
-.edit_button {
-    display: flex;
-    justify-content: flex-end;
+.user_btn {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .user_list {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .user_list li {
-    display: inline-block;
-    margin: 8px;
+  display: inline-block;
+  margin: 8px;
     
+}
+
+.btn-follow {
+  color: #007bff;
+  background-color: #fff;
+  border-color: #007bff;
+}
+
+.btn-follow:hover {
+  color: #00f;
+  background-color: #fff;
+  border-color: #00f;
+}
+
+.btn-primary:hover {
+  color: #00f;
+  background-color: #fff;
+  border-color: #00f;
 }
 
 
 /*トップページ*/
-
-.head_img {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-}
 
 .post_icon {
     width: 40px;
@@ -120,17 +127,23 @@ a:hover {
 }
 
 
-/*投稿詳細画面*/
-
-.post_head {
-    display: flex;
-    align-items: center;
-}
-
 /*投稿編集画面*/
 
-
 .post_edit {
-    display:flex;
-    justify-content:space-between;
+  display:flex;
+  justify-content:space-between;
+}
+
+
+/*フォロー一覧ページ*/
+
+.card-header {
+  /*color: #fff;*/
+  background-color: #fef;
+}
+
+.follow_name {
+  display:flex;
+  justify-content:space-between;
+  align-items: center
 }
