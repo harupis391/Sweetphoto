@@ -5,10 +5,12 @@ class PostsController < ApplicationController
   def index
     @post = current_user.posts.build  # form_with 用
     @posts = Post.order(id: :desc)
+    counts_of(@post)
   end
 
   def show
     @post = Post.find(params[:id])
+    counts_of(@post)
   end
 
   def create

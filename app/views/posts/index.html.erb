@@ -1,11 +1,11 @@
 <div class="row">
   <aside class="col-md-4">
-    <%= render 'new_posts', post: @post %>
+    <%= render 'new', post: @post %>
   </aside>
   
   <div class="col-md-5 offset-md-1">
     <ul class="nav nav-tabs justify-content-center mt-4 mb-5">
-      <li class="nav-item"><a href="#" class="nav-link active"><i class="fas fa-hashtag"></i>新着</a></li>
+      <li class="nav-item"><a href="#" class="nav-link active"><i class="fas fa-hashtag" aria-hidden="true"></i>新着</a></li>
     </ul>
     
     <% if @posts.any? %>
@@ -24,8 +24,14 @@
               <div class="text-center">
                 <%= image_tag post.image.url, alt: "image", class: "img-fluid mb-1" %>
               </div>
-              <div>
-                <%= link_to 'もっと表示', post_path(post) %>
+              <div class="post_foot">
+                <div>
+                  <%= link_to 'もっと表示', post_path(post) %>
+                </div>
+                <div>
+                  <%= render 'favorites/likes_button', post: post %>
+                </div>
+                
               </div>  
             </div>
           </li>

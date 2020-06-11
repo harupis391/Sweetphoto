@@ -3,6 +3,10 @@
     <%= render 'users', user: @user %>
   </div>
   <div class="col-md-6">
+    <ul class="nav nav-tabs nav-justified mt-sm-5 mb-5">
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>"><i class="far fa-images fa-lg" aria-hidden="true"></i></a></li>
+      <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>"><i class="fas fa-heart fa-lg" aria-hidden="true"></i></a></li>
+    </ul>
     <div class="card mt-5">
       <div class="card-header">
         <h5 class="card-title d-flex align-items-center justify-content-center">フォロワー</h5>

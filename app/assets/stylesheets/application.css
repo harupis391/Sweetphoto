@@ -126,6 +126,20 @@ a:hover {
     border-color: #C0C0C0;
 }
 
+.post_foot {
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.btn-default {
+  color: #f06;
+}
+
+.btn-default:hover {
+  background-color: #fff;
+}
+
 
 /*投稿編集画面*/
 
@@ -138,12 +152,11 @@ a:hover {
 /*フォロー一覧ページ*/
 
 .card-header {
-  /*color: #fff;*/
   background-color: #fef;
 }
 
 .follow_name {
   display:flex;
   justify-content:space-between;
-  align-items: center
+  align-items: center;
 }

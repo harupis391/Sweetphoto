@@ -4,7 +4,7 @@
     </div>
     <aside class="col-6">
       <h2><%= user.name %></h2>
-      <div class="user_btn mt-5">
+      <div class="d-flex justify-content-end mt-5">
         <% if current_user == user %>
           <%= link_to edit_user_path(user) do %>
             <i class="fa fa-user-cog fa-2x"></i>
