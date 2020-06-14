@@ -12,10 +12,15 @@ Rails.application.routes.draw do
       get :followings
       get :followers
       get :likes
+      get :feeds
+      get :notifications
     end
   end
   
-  resources :posts, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :posts, only: [:index, :show, :create, :edit, :update, :destroy] do
+      resources :comments, only: [:create, :destroy]
+  end
+  
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
 end
