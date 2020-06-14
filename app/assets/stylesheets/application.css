@@ -141,6 +141,27 @@ a:hover {
 }
 
 
+/*投稿詳細画面*/
+
+.comment_icon {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border: 1px solid;
+  border-color: #C0C0C0;
+}
+
+.comment_head {
+  display:flex;
+  justify-content:space-between;
+}
+
+.comment_content {
+  display:flex;
+  justify-content:space-between;
+}
+
+
 /*投稿編集画面*/
 
 .post_edit {
