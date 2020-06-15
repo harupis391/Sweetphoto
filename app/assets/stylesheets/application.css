@@ -63,6 +63,14 @@ a:hover {
     background-color: #FFB6C1;
 }
 
+.n-circle {
+  position: relative;
+  top: -10px;
+  right: 8px;
+  color: #9f0;
+  font-size: 8px;
+}
+
 
 /*ユーザ詳細画面*/
 
@@ -180,4 +188,23 @@ a:hover {
   display:flex;
   justify-content:space-between;
   align-items: center;
+}
+
+
+/*通知一覧ページ*/
+
+.n_img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border: 1px solid;
+  border-color: #C0C0C0;
+}
+
+.n_icon {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border: 1px solid;
+  border-color: #C0C0C0;
 }

@@ -10,6 +10,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.all
+    @comment = @post.comments.build
     counts_of(@post)
   end
 
@@ -20,7 +22,7 @@ class PostsController < ApplicationController
       redirect_to root_url
     else
       @posts = current_user.posts.order(id: :desc)
-      flash.now[:danger] = '投稿に失敗しました。'
+      flash.now[:danger] = '入力内容に誤りがあります。'
       render :index
     end
   end
@@ -56,5 +58,4 @@ class PostsController < ApplicationController
       redirect_to root_url
     end
   end
-  
 end

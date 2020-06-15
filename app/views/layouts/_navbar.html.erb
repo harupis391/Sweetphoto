@@ -9,7 +9,10 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item nav-link"><%= link_to current_user.name, user_path(current_user) %></li>
-          <li class="nav-item nav-link">通知</li>
+          <li class="nav-item nav-link"><%= link_to '通知', notifications_user_path(current_user) %>
+            <% if unchecked_notifications.any? %>
+              <i class="fa fa-circle n-circle"></i>
+            <% end %></li>
           <li class="nav-item nav-link"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
         </ul>
       </div>

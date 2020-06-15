@@ -7,9 +7,9 @@ class Comment < ApplicationRecord
   
   def notify_comment(current_user)
     unless self.post.user == current_user
-        self.notifications.find_or_create_by(
+        current_user.notifications.find_or_create_by(
+          comment_id: self.id,
           post_id: self.post.id,
-          visitor_id: current_user.id,
           visited_id: self.post.user.id,
           action:"comment"
           )

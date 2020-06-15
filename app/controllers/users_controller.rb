@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show, :edit, :update, :followings, :followers]
+  before_action :require_user_logged_in, only: [
+    :show, :edit, :update, :followings, :followers, :notifications
+  ]
   before_action :correct_user, only: [:edit, :update]
   
   def show
@@ -56,6 +58,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @favorites = @user.likes
     counts(@user)
+  end
+  
+  def feeds
+    @post = current_user.posts.build
+    @posts = current_user.feed_posts.order(id: :desc)
+  end
+  
+  def notifications
+    @notifications = current_user.reverses_of_notification.order(created_at: :desc)
+    @notifications.where(checked: false).each do |notification|
+      notification.update_attributes(checked: true)
+    end
   end
   
   private

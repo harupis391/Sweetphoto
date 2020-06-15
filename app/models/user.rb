@@ -15,6 +15,9 @@ class User < ApplicationRecord
     has_many :followers, through: :reverses_of_relationship, source: :user
     has_many :favorites, dependent: :destroy
     has_many :likes, through: :favorites, source: :post
+    has_many :comments, dependent: :destroy
+    has_many :notifications, foreign_key:"visitor_id", dependent: :destroy
+    has_many :reverses_of_notification, class_name: "Notification", foreign_key:"visited_id", dependent: :destroy
     
     def follow(other_user)
         unless self == other_user
@@ -46,5 +49,12 @@ class User < ApplicationRecord
     
     def favorite?(post)
       self.likes.include?(post)
+    end
+    
+    def notify_follow(other_user)
+        self.notifications.find_or_create_by(
+          visited_id: other_user.id,
+          action:"follow"
+          )
     end
 end

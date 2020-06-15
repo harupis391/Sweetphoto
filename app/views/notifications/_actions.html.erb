@@ -1,0 +1,41 @@
+<% case notification.action
+  when "follow" %>
+    <ul class="list-unstyled mt-4">
+      <li class="media d-flex justify-content-between align-items-center mt-4">
+        <%= image_tag notification.visitor.image.url, alt: "icon", class: "n_icon rounded-circle mr-md-4 mr-1" %>
+        <div class="media-body mr-2">
+          <%= link_to notification.visitor.name, user_path(notification.visitor) %><span>からフォローされました。</span>
+        </div>
+        <div>
+          <%= time_ago_in_words(notification.created_at) %><span>前</span>
+        </div>
+      </li>
+    </ul>
+  <% when "like" %>
+    <ul class="list-unstyled mt-4">
+      <li class="media d-flex justify-content-between align-items-center mt-4">
+        <%= image_tag notification.post.image.url, alt: "post_image", class: "n_img mr-md-4 mr-1" %>
+        <div class="media-body mr-2">
+          <%= link_to notification.visitor.name, user_path(notification.visitor) %><span>からいいねがつきました。</span>
+          <%= link_to '投稿を表示', post_path(notification.post) %>
+        </div>
+        <%= time_ago_in_words(notification.created_at) %><span>前</span>
+      </li>
+    </ul>
+  <% when "comment" %>
+    <ul class="list-unstyled mt-4">
+      <li class="media d-flex justify-content-between align-items-center">
+        <%= image_tag notification.post.image.url, alt: "post_image", class: "n_img mr-md-4 mr-1" %>
+        <div class="media-body mr-2">
+          <div class="mb-1">
+           <%= link_to notification.visitor.name, user_path(notification.visitor) %><span>からコメントがきました。</span>
+           <%= link_to '投稿を表示', post_path(notification.post) %>
+          </div>
+          <div>
+            <p class="text-secondary"><%= notification.comment.content %></p>
+          </div>
+        </div>
+        <%= time_ago_in_words(notification.created_at) %><span>前</span>
+      </li>
+    </ul>
+<% end %>
