@@ -66,7 +66,7 @@ class UsersController < ApplicationController
   end
   
   def notifications
-    @notifications = current_user.reverses_of_notification.order(created_at: :desc)
+    @notifications = current_user.reverses_of_notification.order(id: :desc)
     @notifications.where(checked: false).each do |notification|
       notification.update_attributes(checked: true)
     end

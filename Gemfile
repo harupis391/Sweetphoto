@@ -58,7 +58,8 @@ gem 'kaminari'
 
 gem 'font-awesome-rails'
 
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'cloudinary'
 
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'

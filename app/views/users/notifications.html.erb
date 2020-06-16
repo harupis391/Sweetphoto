@@ -2,12 +2,14 @@
     <h3>通知</h3>
 </div>
 <div class="row">
-  <% if @notifications.any? %>
-    <div class="col-md-8 offset-md-2">
-        <% @notifications.each do |notification| %>
-          <%= render 'notifications/actions', notification: notification %>
-          
-        <% end %>
-    </div>
-  <% end %>
+  <div class="col-md-8 offset-md-2">
+    <% if @notifications.any? %>
+      <% @notifications.each do |notification| %>
+        <%= render 'notifications/actions', notification: notification %>
+      <% end %>
+    <% else %>
+      <p class="text-center mt-auto mb-auto">通知はまだありません。</p>
+    <% end %>
+  </div>
+    
 </div>
