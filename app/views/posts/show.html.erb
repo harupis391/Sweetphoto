@@ -66,7 +66,6 @@
       <%= image_tag current_user.image.url, alt: "icon", class: "comment_icon rounded-circle mt-3 mb-2" %>
       
       <%= form_with(model: [@post, @comment], local: true) do |f| %>
-        <%= render 'layouts/error_messages', model: f.object %>
       
         <div class="form-group">
           <%= f.text_area :content, placeholder: "コメントを書く", class: 'form-control', rows: 3 %>
