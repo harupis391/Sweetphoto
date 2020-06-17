@@ -45,6 +45,14 @@ class PostsController < ApplicationController
     flash[:success] = '投稿を削除しました。'
     redirect_to user_path(current_user)
   end
+  
+  def search
+    if params[:content].present?
+      @posts = Post.where('content LIKE ?', "%#{params[:content]}%")
+    else
+      @posts = Post.none
+    end
+  end
 
   private
   

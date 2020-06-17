@@ -184,7 +184,7 @@ a:hover {
   background-color: #fef;
 }
 
-.follow_name {
+.name_list {
   display:flex;
   justify-content:space-between;
   align-items: center;

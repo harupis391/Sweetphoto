@@ -16,10 +16,16 @@ Rails.application.routes.draw do
       get :feeds
       get :notifications
     end
+    collection do
+      get :search
+    end
   end
   
   resources :posts, only: [:index, :show, :create, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy]
+      collection do
+        get :search
+      end
   end
   
   resources :relationships, only: [:create, :destroy]

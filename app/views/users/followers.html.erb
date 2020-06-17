@@ -15,10 +15,10 @@
         <% if @followers.any? %>
           <ul class="list-unstyled">
             <% @followers.each do |follower| %>
-              <li class="follow_name mb-3">
+              <li class="name_list mb-3">
                 <div>
                   <%= image_tag follower.image.url, alt: "icon", class: "user_icon rounded-circle mr-2" %>
-                  <%= link_to follower.name, followers_user_path(follower) %>
+                  <%= link_to follower.name, user_path(follower) %>
                 </div>
                 <div>
                   <%= render 'relationships/follow_button', user: follower %>
