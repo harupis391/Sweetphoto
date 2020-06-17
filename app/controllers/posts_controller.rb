@@ -47,11 +47,7 @@ class PostsController < ApplicationController
   end
   
   def search
-    if params[:content].present?
-      @posts = Post.where('content LIKE ?', "%#{params[:content]}%")
-    else
-      @posts = Post.none
-    end
+    @posts = Post.where('content LIKE ?', "%#{params[:content]}%").order(id: :desc)
   end
 
   private
